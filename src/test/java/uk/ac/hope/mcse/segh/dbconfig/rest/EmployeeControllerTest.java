@@ -3,10 +3,8 @@ package uk.ac.hope.mcse.segh.dbconfig.rest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.mockito.Mockito.*;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+
 import uk.ac.hope.mcse.segh.dbconfig.model.Employee;
-import uk.ac.hope.mcse.segh.dbconfig.service.EmployeeDataService;
 import uk.ac.hope.mcse.segh.dbconfig.service.EmployeeDataServiceImpl;
 
 import java.util.Optional;
@@ -15,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class EmployeeControllerTest {
 
-    EmployeeController controller;
+    uk.ac.hope.mcse.segh.dbconfig.EmployeeController controller;
 
     @BeforeEach
     void setUp() {
@@ -27,7 +25,7 @@ class EmployeeControllerTest {
         Optional<Employee> employee = Optional.of(e);
         when(employeeDataService.findEmployeeById(1L)).thenReturn(employee);
 
-        controller = new EmployeeController(employeeDataService);
+        controller = new uk.ac.hope.mcse.segh.dbconfig.EmployeeController(employeeDataService);
     }
 
     @Test
