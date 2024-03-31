@@ -1,4 +1,4 @@
-package uk.ac.hope.mcse.segh.dbconfig;
+package uk.ac.hope.mcse.segh.dbconfig.service;
 
 import org.springframework.stereotype.Service;
 

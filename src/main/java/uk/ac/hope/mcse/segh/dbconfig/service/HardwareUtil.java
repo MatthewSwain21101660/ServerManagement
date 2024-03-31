@@ -1,12 +1,6 @@
-package uk.ac.hope.mcse.segh.dbconfig;
+package uk.ac.hope.mcse.segh.dbconfig.service;
 
 public interface HardwareUtil {
 
-    void hardwareType(String hardwareType);
-
-    void timePeriod(String timePeriod);
-
-    void recentData(String recentData);
-
-    void readingsFromLastTimePeriod(String readingsFromLastTimePeriod);
+    void drawGraph(String hardwareType, String timePeriod);
 }

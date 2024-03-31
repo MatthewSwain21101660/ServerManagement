@@ -1,4 +1,4 @@
-package uk.ac.hope.mcse.segh.dbconfig;
+package uk.ac.hope.mcse.segh.dbconfig.service;
 
 import org.springframework.stereotype.Service;
 
@@ -6,14 +6,7 @@ import org.springframework.stereotype.Service;
 public class HardwareUtilImpl implements HardwareUtil {
 
     @Override
-    public void hardwareType(String hardwareType){};
-
-    @Override
-    public void timePeriod(String timePeriod){};
-
-    @Override
-    public void recentData(String recentData){};
-
-    @Override
-    public void readingsFromLastTimePeriod(String readingsFromLastTimePeriod){};
+    public void drawGraph(String hardwareType, String timePeriod){
+        String recentData;
+    };
 }

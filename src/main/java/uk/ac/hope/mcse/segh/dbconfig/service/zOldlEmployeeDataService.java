@@ -5,7 +5,7 @@ import uk.ac.hope.mcse.segh.dbconfig.model.Employee;
 import java.util.List;
 import java.util.Optional;
 
-public interface EmployeeDataService {
+public interface zOldlEmployeeDataService {
 
     List<Employee> findAllEmployees();
     Employee saveEmployee(Employee employee);

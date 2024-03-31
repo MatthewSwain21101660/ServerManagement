@@ -1,2 +1,5 @@
-package uk.ac.hope.mcse.segh.dbconfig.service;public interface MainPage {
+package uk.ac.hope.mcse.segh.dbconfig.service;
+
+public interface MainPage {
+    void drawMainPage();
 }
