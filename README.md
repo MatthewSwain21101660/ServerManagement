@@ -1,3 +1,5 @@
+https://stackoverflow.com/questions/16433915/how-to-copy-file-from-one-location-to-another-location
+
 Initial Proposal:
 
 This piece of software will allow a user to monitor the status of a machine and be able to back up a file or directory of the users choosing. The user will be able to go onto a website in which they will be able to see details such as CPU and memory utilisation and they will also be able to enter the address of the machine that contains the files, the Linux file or directory they would like to backup and where they would like it to back it up to. Once they have submitted these details, the program will find the file or multiple files the user wishes to backup and copy them to the target location.
