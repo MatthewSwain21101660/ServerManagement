@@ -9,6 +9,6 @@ public class BackupServiceImpl implements BackupService {
     @Override
     public String backupFunction(String sourcePath, String destinationPath){
 
-        return "Hello";
+        return destinationPath;
     }
 }

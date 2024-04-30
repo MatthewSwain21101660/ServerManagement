@@ -25,6 +25,11 @@ class ServerManagementController {
         return backupService.backupFunction(sourcePath, destinationPath);
     }
 
+    @GetMapping("/getUtil")
+    String getUtil(@RequestParam(value= "hardwareType", defaultValue = "CPU") String hardwareType, String timePeriod){
+        return hardwareUtil.getUtil(hardwareType, timePeriod);
+    }
+
 }
 
 

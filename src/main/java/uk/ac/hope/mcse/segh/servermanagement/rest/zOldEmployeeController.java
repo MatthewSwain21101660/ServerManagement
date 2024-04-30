@@ -2,7 +2,7 @@ package uk.ac.hope.mcse.segh.servermanagement.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import uk.ac.hope.mcse.segh.servermanagement.exception.EmployeeNotFoundException;
+import uk.ac.hope.mcse.segh.servermanagement.exception.ResourceNotFoundException;
 import uk.ac.hope.mcse.segh.servermanagement.model.Employee;
 import uk.ac.hope.mcse.segh.servermanagement.service.zOldlEmployeeDataService;
 
@@ -28,13 +28,14 @@ class zOldEmployeeController {
         return zOldlEmployeeDataService.saveEmployee(newEmployee);
     }
 
+    /*
     @GetMapping("/employees/{id}")
     Employee findById(@PathVariable Long id) {
 
         return zOldlEmployeeDataService.findEmployeeById(id)
-                .orElseThrow(() -> new EmployeeNotFoundException(id));
+                .orElseThrow(() -> new ResourceNotFoundException(id));
     }
-
+*/
     @PostMapping("/employees/{id}")
     Employee replaceEmployee(@RequestBody Employee newEmployee, @PathVariable Long id) {
 
