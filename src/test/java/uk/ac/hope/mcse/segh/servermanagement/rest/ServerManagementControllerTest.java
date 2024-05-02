@@ -1,4 +1,4 @@
-package java.uk.ac.hope.mcse.segh.servermanagement.rest;
+package uk.ac.hope.mcse.segh.servermanagement.rest;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ServerManagementControllerTest {
 
-    java.uk.ac.hope.mcse.segh.servermanagement.rest.ServerManagementController controller;
+    uk.ac.hope.mcse.segh.servermanagement.rest.ServerManagementController controller;
 
     @BeforeEach
     void setUp() {

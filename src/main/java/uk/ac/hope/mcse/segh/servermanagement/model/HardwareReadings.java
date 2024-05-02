@@ -4,7 +4,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "HardwareReadings")
+@Document(collection = "hardwarereadings")
 public class HardwareReadings {
 
     @Id

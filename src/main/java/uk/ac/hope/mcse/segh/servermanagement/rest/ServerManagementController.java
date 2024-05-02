@@ -1,22 +1,27 @@
 package uk.ac.hope.mcse.segh.servermanagement.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uk.ac.hope.mcse.segh.servermanagement.service.BackupService;
-import uk.ac.hope.mcse.segh.servermanagement.service.HardwareUtil;
+import uk.ac.hope.mcse.segh.servermanagement.service.HardwareUtilService;
 
 @RestController
 class ServerManagementController {
 
 
 
-    private final HardwareUtil hardwareUtil;
+    private HardwareUtilService hardwareUtilService;
 
-    private final BackupService backupService;
+    private BackupService backupService;
+
+    public ServerManagementController(){
+
+    }
 
     @Autowired
-    ServerManagementController(HardwareUtil hardwareUtil, BackupService backupService) {
-        this.hardwareUtil = hardwareUtil;
+    public ServerManagementController(HardwareUtilService hardwareUtilService, BackupService backupService) {
+        this.hardwareUtilService = hardwareUtilService;
         this.backupService = backupService;
     }
 
@@ -27,7 +32,7 @@ class ServerManagementController {
 
     @GetMapping("/getUtil")
     String getUtil(@RequestParam(value= "hardwareType", defaultValue = "CPU") String hardwareType, String timePeriod){
-        return hardwareUtil.getUtil(hardwareType, timePeriod);
+        return ResponseEntity.ok().body(hardwareUtilService.getUtil(hardwareType, timePeriod, hardware));
     }
 
 }
