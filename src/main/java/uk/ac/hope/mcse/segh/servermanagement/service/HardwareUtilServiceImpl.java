@@ -4,13 +4,17 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
+import oshi.util.Util;
 import uk.ac.hope.mcse.segh.servermanagement.model.HardwareReading;
 import uk.ac.hope.mcse.segh.servermanagement.repo.HardwareReadingRepository;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 @Transactional
@@ -24,7 +28,7 @@ public class HardwareUtilServiceImpl implements HardwareUtilService {
     }
 
     @Override
-    public List<HardwareReading> getUtil(String hardwareType, String timePeriod) {
+    public String getUtil(String hardwareType, String timePeriod) {
         SystemInfo si = new SystemInfo();
         HardwareAbstractionLayer hal = si.getHardware();
         OperatingSystem os = si.getOperatingSystem();
@@ -34,31 +38,35 @@ public class HardwareUtilServiceImpl implements HardwareUtilService {
 
         GlobalMemory latestRamReading = hal.getMemory();
 
-        System.out.println(hal.getProcessor());
-        System.out.println(hal.getMemory());
-        System.out.println(hal.getComputerSystem());
-        System.out.println(hal.getDisplays());
-        System.out.println(hal.getDiskStores());
-        System.out.println(hal.getGraphicsCards());
-        System.out.println(hal.getLogicalVolumeGroups());
-        System.out.println(hal.getNetworkIFs());
-        System.out.println(hal.getNetworkIFs());
-        System.out.println(hal.getDiskStores());
-        System.out.println(hal.getPowerSources());
-        System.out.println(hal.getSensors());
-        System.out.println(hal.getSoundCards());
-        System.out.println(hal.getUsbDevices(true));
-        System.out.println(hal.getClass());
+        //System.out.println(FormatUtil.formatHertz(hal.getProcessor().getMaxFreq()));
+        //System.out.println(hal.getMemory());
 
-        //HardwareReading latestHardwareReading = new HardwareReading();
-        //latestHardwareReading.setRam(latestRamReading);
+        List<String> oshi = new ArrayList<>();
+
+        CentralProcessor processor = hal.getProcessor();
+
+        long[] prevTicks = processor.getSystemCpuLoadTicks();
+        // Wait a second...
+        Util.sleep(1000);
+        long[] ticks = processor.getSystemCpuLoadTicks();
+
+
+
+        oshi.add(String.format(Locale.ROOT, "CPU load: %.1f%%",
+                processor.getSystemCpuLoadBetweenTicks(prevTicks) * 100));
+
+        System.out.println(String.format(Locale.ROOT, "CPU load: %.1f%%",processor.getSystemCpuLoad(1000) * 100));
+
+
+
+    System.out.println(oshi);
 
         switch(hardwareType) {
             case "cpu":
                 switch (timePeriod){
                     case "minute" :
-                        //System.out.println(hal.getProcessor());
-                        break;
+                        return (String.format(Locale.ROOT, "CPU load: %.2f%%",processor.getSystemCpuLoad(1000) * 100));
+                        //break;
                     case "hour" :
 
                     case "day" :
@@ -91,9 +99,10 @@ public class HardwareUtilServiceImpl implements HardwareUtilService {
 
         //return (List<HardwareReading>) cpu;
         //return repository.findHardwareReadingByCpu(57);
-        return repository.findAll();
+        //return repository.findAll();
         //return repository.findHardwareReadingById(1);
 
         //return hardwareType;
+        return "nothing";
     }
 }
