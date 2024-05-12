@@ -15,9 +15,9 @@ public class HardwareReading {
 
     private String dateTime;
 
-    private int cpu;
+    private double cpu;
 
-    private int ram;
+    private double ram;
 
 
     public BigInteger get_id() {
@@ -36,19 +36,19 @@ public class HardwareReading {
         this.dateTime = dateTime;
     }
 
-    public int getCpu() {
+    public double getCpu() {
         return cpu;
     }
 
-    public void setCpu(int cpu) {
+    public void setCpu(double cpu) {
         this.cpu = cpu;
     }
 
-    public int getRam() {
+    public double getRam() {
         return ram;
     }
 
-    public void setRam(int ram) {
+    public void setRam(double ram) {
         this.ram = ram;
     }
 

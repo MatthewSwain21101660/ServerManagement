@@ -7,14 +7,12 @@ import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
-import oshi.software.os.OperatingSystem;
-import oshi.util.Util;
 import uk.ac.hope.mcse.segh.servermanagement.model.HardwareReading;
 import uk.ac.hope.mcse.segh.servermanagement.repo.HardwareReadingRepository;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 @Service
 @Transactional
@@ -28,81 +26,61 @@ public class HardwareUtilServiceImpl implements HardwareUtilService {
     }
 
     @Override
-    public String getUtil(String hardwareType, String timePeriod) {
+    public List<HardwareReading> getUtil(String hardwareType, String timePeriod) {
+        //Initiliase variables required for hardware readings
         SystemInfo si = new SystemInfo();
         HardwareAbstractionLayer hal = si.getHardware();
-        OperatingSystem os = si.getOperatingSystem();
 
-
-
-
-        GlobalMemory latestRamReading = hal.getMemory();
-
-        //System.out.println(FormatUtil.formatHertz(hal.getProcessor().getMaxFreq()));
-        //System.out.println(hal.getMemory());
-
-        List<String> oshi = new ArrayList<>();
-
+        //Get processor details
         CentralProcessor processor = hal.getProcessor();
+        //Get the current CPU usage. Works by taking a sample of CPU tick counters, waits one second, takes another and works out the difference to find the current whole CPU usage. Then multiplies by 100 to get a more human-readable number
+        double currentCpuUsage = (double) (processor.getSystemCpuLoad(1000) * 100);
+        //Rounds the reading to two decimal places
+        currentCpuUsage = Math.round(currentCpuUsage * 100);
+        currentCpuUsage = currentCpuUsage/100;
 
-        long[] prevTicks = processor.getSystemCpuLoadTicks();
-        // Wait a second...
-        Util.sleep(1000);
-        long[] ticks = processor.getSystemCpuLoadTicks();
+        //Gets a reading of the current RAM usage
+        GlobalMemory currentUnconvertedRamUsage = hal.getMemory();
+        //As the value provided by getMemory is of type GlobalMemory and the value provided is in the format "Available: 15.5 GiB/31.9 GiB", the following converts it to the format "15.5" and into a double
+        int start = currentUnconvertedRamUsage.toString().indexOf(" ");
+        int end = currentUnconvertedRamUsage.toString().indexOf("G");
+        double currentConvertedRamUsage = Double.parseDouble(currentUnconvertedRamUsage.toString().substring(start + 1, end - 1));
 
+        //Gets the current date and time
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        System.out.println(dtf.format(now));
 
+        //Print values to console for debugging purposes
+        System.out.println(currentCpuUsage);
+        System.out.println(currentUnconvertedRamUsage);
+        System.out.println(currentConvertedRamUsage);
 
-        oshi.add(String.format(Locale.ROOT, "CPU load: %.1f%%",
-                processor.getSystemCpuLoadBetweenTicks(prevTicks) * 100));
+        //Save all the read values into the MongoDB database
+        HardwareReading HardwareReading = new HardwareReading();
+        HardwareReading.setDateTime(dtf.format(now));
+        HardwareReading.setCpu(currentCpuUsage);
+        HardwareReading.setRam(currentConvertedRamUsage);
+        repository.save(HardwareReading);
 
-        System.out.println(String.format(Locale.ROOT, "CPU load: %.1f%%",processor.getSystemCpuLoad(1000) * 100));
+        switch(timePeriod) {
+            case "minute" :
+                return repository.findAll();
 
-
-
-    System.out.println(oshi);
-
-        switch(hardwareType) {
-            case "cpu":
-                switch (timePeriod){
-                    case "minute" :
-                        return (String.format(Locale.ROOT, "CPU load: %.2f%%",processor.getSystemCpuLoad(1000) * 100));
-                        //break;
-                    case "hour" :
-
-                    case "day" :
-
-                    case "week":
-
-                    case "month":
-                }
+            case "hour" :
                 break;
 
-            case "ram" :
-                switch (timePeriod){
-                    case "minute" :
-
-                    case "hour" :
-
-                    case "day" :
-
-                    case "week":
-
-                    case "month":
-                }
+            case "day" :
                 break;
-        }
 
+            case "week":
+                break;
 
+            case "month":
+                break;
 
+                }
 
-
-
-        //return (List<HardwareReading>) cpu;
-        //return repository.findHardwareReadingByCpu(57);
-        //return repository.findAll();
-        //return repository.findHardwareReadingById(1);
-
-        //return hardwareType;
-        return "nothing";
+        return repository.findAll();
     }
 }
