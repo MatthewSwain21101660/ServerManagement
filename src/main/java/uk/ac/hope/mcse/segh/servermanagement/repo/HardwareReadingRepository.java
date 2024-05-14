@@ -9,7 +9,5 @@ import java.util.Optional;
 
 public interface HardwareReadingRepository extends MongoRepository <HardwareReading, BigInteger> {
 
-    Optional<HardwareReading> findHardwareReadingBy_id(BigInteger _id);
-
-    Optional<HardwareReading> findHardwareReadingByCpu(int cpu);
+    Optional<HardwareReading> findHardwareReadingByCpu(double cpu);
 }

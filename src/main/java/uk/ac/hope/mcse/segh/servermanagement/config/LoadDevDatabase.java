@@ -6,9 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
-import uk.ac.hope.mcse.segh.servermanagement.model.Employee;
-import uk.ac.hope.mcse.segh.servermanagement.repo.EmployeeRepository;
-
+/*
 @Configuration
 class LoadDevDatabase {
 
@@ -24,3 +22,4 @@ class LoadDevDatabase {
         };
     }
 }
+*/
