@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-management-deploy
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  selector:
+    matchLabels:
+      app: server-management
+  revisionHistoryLimit: 1
+  progressDeadlineSeconds: 60
+  template:
+    metadata:
+      labels:
+        app: server-management
+    spec:
+      containers:
+      - name: server-management-analyser
+        image: daaargon/server-management-analyser
+
+      - name: server-management-cleanup
+        image: daaargon/server-management-cleanup
+
+      - name: server-management-reporter
+        image: daaargon/server-management-reporter
+        ports:
+        - containerPort: 9000
+
+      - name: server-management-monogodb
+        image: daaargon/server-management-mongodb
+        ports:
+        - containerPort: 27017
+
