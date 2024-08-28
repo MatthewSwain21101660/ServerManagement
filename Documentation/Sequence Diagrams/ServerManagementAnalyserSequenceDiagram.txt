@@ -1,0 +1,7 @@
+title ServerManagementAnalyserSequenceDiagram
+
+loop Process repeats every second
+ServerManagementAnalyserController->TakeHardwareReading:takeReading()
+note over TakeHardwareReading: Utilisation is taken using the oshi library
+TakeHardwareReading -> MongoDB:Store reading
+end

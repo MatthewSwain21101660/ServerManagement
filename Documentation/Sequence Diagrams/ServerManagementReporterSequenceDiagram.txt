@@ -1,0 +1,10 @@
+title ServerManagementReporterSequenceDiagram
+
+actor User
+User -> ServerManagementReporterController: Reqests readings over time period
+ServerManagementReporterController->ReportHardwareReading:reportReading()
+note over ReportHardwareReading: Creates a mongo query that returns a certain number of records based on the provided time period
+ReportHardwareReading -> MongoDB: Retrieves records
+ReportHardwareReading <- MongoDB: Returns readings
+ServerManagementReporterController <- ReportHardwareReading: Returns readings
+User <- ServerManagementReporterController: Returns readings

@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:129.0) Gecko/20100101 Firefox/129.0" version="24.7.7">
+  <diagram id="JvNztcLzzB4lx43ZR72-" name="Page-1">
+    <mxGraphModel dx="1647" dy="909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="SxmBoxdIOeCgQ3alWcWk-1" target="SxmBoxdIOeCgQ3alWcWk-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-1" value="ServerManagementAnalyserController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="269" y="80" width="356" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-2" value="- takeHardwareReadingService : TakeHardwareReadingService" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-1" vertex="1">
+          <mxGeometry y="26" width="356" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-1" vertex="1">
+          <mxGeometry y="50" width="356" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-4" value="+ ServerManagementController&#xa;~ takeReading : void&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-1" vertex="1">
+          <mxGeometry y="58" width="356" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-5" value="TakeHardwareReadingService" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="334" y="260" width="226" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-7" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-5" vertex="1">
+          <mxGeometry y="26" width="226" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-8" value="~ takeReading() : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-5" vertex="1">
+          <mxGeometry y="34" width="226" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-10" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="180" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-11" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="240" width="20" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.496;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=block;endFill=0;" parent="1" source="SxmBoxdIOeCgQ3alWcWk-12" target="SxmBoxdIOeCgQ3alWcWk-8" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;endArrow=none;endFill=0;" parent="1" source="SxmBoxdIOeCgQ3alWcWk-12" target="SxmBoxdIOeCgQ3alWcWk-18" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-12" value="TakeHardwareReadingServiceImpl" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="294" y="400" width="306" height="294" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-13" value="- repository : HardwareReadingRepository&#xa;~ si : SystemInfo&#xa;~ hal : HardwareAbstractionLayer&#xa;~ processor : CentralProcessor&#xa;~ currentCpuUsage : double&#xa;~ currentUnconvertedRamUsage : GlobalMemory&#xa;~ start : int&#xa;~ end : int&#xa;~ currentConvertedRamUsage: String&#xa;~ totalStart : int&#xa;~ extractedRamUsage : String&#xa;~ totalEnd : int&#xa;~ totalRam : String&#xa;~ dtf : DateTimeFormatter&#xa;~ now : LocalDateTime&#xa;~ HardwareReading : HardwareReading" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-12" vertex="1">
+          <mxGeometry y="26" width="306" height="234" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-14" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-12" vertex="1">
+          <mxGeometry y="260" width="306" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-15" value="+ takeReading() void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-12" vertex="1">
+          <mxGeometry y="268" width="306" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-17" value="implements" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="380" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="SxmBoxdIOeCgQ3alWcWk-18" target="SxmBoxdIOeCgQ3alWcWk-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-18" value="HardwareReadingRepository" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="367" y="770" width="160" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-18" vertex="1">
+          <mxGeometry y="26" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-23" value="HardwareReading" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
+          <mxGeometry x="367" y="890" width="160" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-24" value="- _id : BigInteger&#xa;- dateTime : String&#xa;- cpu : String&#xa;- ram : String&#xa;- ramTotal : String&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-23" vertex="1">
+          <mxGeometry y="26" width="160" height="84" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-25" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-23" vertex="1">
+          <mxGeometry y="110" width="160" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="SxmBoxdIOeCgQ3alWcWk-26" value="+ setDateTime : void&#xa;+ setCpu : void&#xa;+ setRam : void&#xa;+ setRamTotal : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="SxmBoxdIOeCgQ3alWcWk-23" vertex="1">
+          <mxGeometry y="118" width="160" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="zUKHOmlJRU0IThX-05zi-1" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="694" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zUKHOmlJRU0IThX-05zi-2" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="740" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zUKHOmlJRU0IThX-05zi-3" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="830" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="zUKHOmlJRU0IThX-05zi-4" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="450" y="860" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="DDRmbU0V_4BfJ6BhbqIK-1" value="extends" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Helvetica;fontSize=12;fontColor=default;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="858" width="60" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

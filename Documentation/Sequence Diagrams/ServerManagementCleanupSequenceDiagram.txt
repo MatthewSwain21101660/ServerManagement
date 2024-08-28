@@ -1,0 +1,9 @@
+title ServerManagementCleanupSequenceDiagram
+
+loop Process repeats every second
+ServerManagementCleanupController->CleanupHardwareReading:cleanupReading()
+note over CleanupHardwareReading: Current time is taken
+CleanupHardwareReading -> DeleteOldReadings:deleteOldReadings()
+note over DeleteOldReadings: Creates a Mongo query tha deletes all readings more than a minute older than the current time and that do not end with ":00"
+DeleteOldReadings -> MongoDB: Sends Mongo query
+end
