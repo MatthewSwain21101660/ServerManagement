@@ -1,3 +1,10 @@
+Service can easily be deployed on Kubernetes, however it is recommended that it is deployed with the following command to ensure compatibility with the website and app
+
+kubectl port-forward service/server-management-service 9000:9000
+
+
+
+
 Code here has been separated into different GitHub repos to allow for individual microservice scaling. This repo now stores the old code for backup and documentation
 
 ### Server Management Analyser
